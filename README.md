@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.2.
 
+## Insject Node.js if necessary
+
+Run 'npm install' on Terminal inside both folders 'Frontend' and 'Backend'
+
 ## Deployment Backend
 
 Run 'node server.js' from Terminal inside the Backend folder. Navigate to `http://localhost:8080/`.
