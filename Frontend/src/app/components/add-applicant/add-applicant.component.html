@@ -1,0 +1,745 @@
+<div> 
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="button-bar">
+        <button mat-button (click)="changeView('personal')">Personal</button>
+        <button mat-button (click)="changeView('study')">Estudios</button>
+        <button mat-button (click)="changeView('work')" >Laboral</button>
+      </div>
+      <div [ngSwitch]="view">
+        <div *ngSwitchCase="'personal'">
+          <fieldset>
+            <div class="element">
+              <div class="form-group">
+                <label for="dpi"> DPI </label>
+                <input
+                type="text"
+                  class="form-control"
+                  id="dpi"
+                  required
+                  [(ngModel)]="applicant.dpi"
+                  name="dpi"
+                />
+              </div>
+              <div class="form-group">
+                <label for="nombreCompleto"> Nombre Completo </label>
+                <input
+                  class="form-control"
+                  id="nombreCompleto"
+                  required
+                  [(ngModel)]="applicant.nombreCompleto"
+                  name="nombreCompleto"
+                />
+              </div>
+              <div class="form-group">
+                <label for="genero"> Genero </label>
+                <input
+                  class="form-control"
+                  id="genero"
+                  required
+                  [(ngModel)]="applicant.genero"
+                  name="genero"
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefono"> Telefono </label>
+                <input
+                  class="form-control"
+                  id="telefono"
+                  required
+                  [(ngModel)]="applicant.telefono"
+                  name="telefono"
+                />
+              </div>
+              <div class="form-group">
+                <label for="celular"> Celular </label>
+                <input
+                  class="form-control"
+                  id="celular"
+                  required
+                  [(ngModel)]="applicant.celular"
+                  name="celular"
+                />
+              </div>
+              <div class="form-group">
+                <label for="correo"> Correo Electronico </label>
+                <input
+                  class="form-control"
+                  id="correo"
+                  required
+                  [(ngModel)]="applicant.correo"
+                  name="correo"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fechaNacimiento"> Fecha de Nacimiento </label>
+                <input
+                  class="form-control"
+                  id="fechaNacimiento"
+                  required
+                  [(ngModel)]="applicant.fechaNacimiento"
+                  name="fechaNacimiento"
+                />
+              </div>
+              <div class="form-group">
+                <label for="puestoAlQueAplica"> Puesto al que Aplica </label>
+                <input
+                  class="form-control"
+                  id="puestoAlQueAplica"
+                  required
+                  [(ngModel)]="applicant.puestoAlQueAplica"
+                  name="puestoAlQueAplica"
+                />
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div *ngSwitchCase="'study'">
+          <div class="button-bar">
+            <button mat-button (click)="changeStudiesView('general')">General</button>
+            <button mat-button (click)="changeStudiesView('phd')">Doctorado</button>
+            <button mat-button (click)="changeStudiesView('master')">Maestria</button>
+            <button mat-button (click)="changeStudiesView('bachelor')">Licenciatura</button>
+            <button mat-button (click)="changeStudiesView('apprenticeship')">Tecnico</button>
+            <button mat-button (click)="changeStudiesView('school')">Colegio</button>
+          </div>
+          <div [ngSwitch]="studiesView">
+            <fieldset *ngSwitchCase="'general'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="estudiosMasAltos"> Estudios Mas Altos </label>
+                  <input
+                    class="form-control"
+                    id="estudiosMasAltos"
+                    required
+                    [(ngModel)]="applicant.estudiosMasAltos"
+                    name="estudiosMasAltos"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="otrosEstudios"> Otros Estudios </label>
+                  <input
+                    class="form-control"
+                    id="otrosEstudios"
+                    required
+                    [(ngModel)]="applicant.otrosEstudios"
+                    name="otrosEstudios"
+                  />
+                </div>
+              </div>
+             
+            </fieldset>
+            <fieldset *ngSwitchCase="'phd'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="doctoradoInstitucion"> Institucion doctorado </label>
+                  <input
+                    class="form-control"
+                    id="doctoradoInstitucion"
+                    required
+                    [(ngModel)]="applicant.doctoradoInstitucion"
+                    name="doctoradoInstitucion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="doctoradoEstudio"> Estudio doctorado </label>
+                  <input
+                    class="form-control"
+                    id="doctoradoEstudio"
+                    required
+                    [(ngModel)]="applicant.doctoradoEstudio"
+                    name="doctoradoEstudio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="doctoradoGrado"> Grado doctorado </label>
+                  <input
+                    class="form-control"
+                    id="doctoradoGrado"
+                    required
+                    [(ngModel)]="applicant.doctoradoGrado"
+                    name="doctoradoGrado"
+                  />
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'master'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="maestriaInstitucion"> Institucion maestria </label>
+                  <input
+                    class="form-control"
+                    id="maestriaInstitucion"
+                    required
+                    [(ngModel)]="applicant.maestriaInstitucion"
+                    name="maestriaInstitucion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="maestriaEstudio"> Estudio maestria </label>
+                  <input
+                    class="form-control"
+                    id="maestriaEstudio"
+                    required
+                    [(ngModel)]="applicant.maestriaEstudio"
+                    name="maestriaEstudio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="maestriaGrado"> Grado maestria </label>
+                  <input
+                    class="form-control"
+                    id="maestriaGrado"
+                    required
+                    [(ngModel)]="applicant.maestriaGrado"
+                    name="maestriaGrado"
+                  />
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'bachelor'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="licenciaturaInstitucion"> Institucion licenciatura </label>
+                  <input
+                    class="form-control"
+                    id="licenciaturaInstitucion"
+                    required
+                    [(ngModel)]="applicant.licenciaturaInstitucion"
+                    name="licenciaturaInstitucion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="licenciaturaEstudio"> Estudio licenciatura </label>
+                  <input
+                    class="form-control"
+                    id="licenciaturaEstudio"
+                    required
+                    [(ngModel)]="applicant.licenciaturaEstudio"
+                    name="licenciaturaEstudio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="licenciaturaGrado"> Grado licenciatura </label>
+                  <input
+                    class="form-control"
+                    id="licenciaturaGrado"
+                    required
+                    [(ngModel)]="applicant.licenciaturaGrado"
+                    name="licenciaturaGrado"
+                  />
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'apprenticeship'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="tecnicoInstitucion"> Institucion tecnico </label>
+                  <input
+                    class="form-control"
+                    id="tecnicoInstitucion"
+                    required
+                    [(ngModel)]="applicant.tecnicoInstitucion"
+                    name="tecnicoInstitucion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="tecnicoEstudio"> Estudio tecnico </label>
+                  <input
+                    class="form-control"
+                    id="tecnicoEstudio"
+                    required
+                    [(ngModel)]="applicant.tecnicoEstudio"
+                    name="tecnicoEstudio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="tecnicoGrado"> Grado tecnico </label>
+                  <input
+                    class="form-control"
+                    id="tecnicoGrado"
+                    required
+                    [(ngModel)]="applicant.tecnicoGrado"
+                    name="tecnicoGrado"
+                  />
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'school'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="colegioInstitucion"> Institucion colegio </label>
+                  <input
+                    class="form-control"
+                    id="colegioInstitucion"
+                    required
+                    [(ngModel)]="applicant.colegioInstitucion"
+                    name="colegioInstitucion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="colegioEstudio"> Estudio colegio </label>
+                  <input
+                    class="form-control"
+                    id="colegioEstudio"
+                    required
+                    [(ngModel)]="applicant.colegioEstudio"
+                    name="colegioEstudio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="colegioGrado"> Grado colegio </label>
+                  <input
+                    class="form-control"
+                    id="colegioGrado"
+                    required
+                    [(ngModel)]="applicant.colegioGrado"
+                    name="colegioGrado"
+                  />
+                </div>
+              </div>
+              
+            </fieldset>
+          </div> 
+        </div>
+        <div *ngSwitchCase="'work'">
+          <div class="button-bar">
+            <button mat-button (click)="changeWorkView('1')">Trabajo 1</button>
+            <button mat-button (click)="changeWorkView('2')">Trabajo 2</button>
+            <button mat-button (click)="changeWorkView('3')">Trabajo 3</button>
+            <button mat-button (click)="changeWorkView('4')">Trabajo 4</button>
+          </div>
+          <div [ngSwitch]="workView">
+            <fieldset *ngSwitchCase="'1'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="empresa1"> Nombre Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1"
+                    required
+                    [(ngModel)]="applicant.empresa1"
+                    name="empresa1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1FechaInicio"> Fecha Inicio Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1FechaInicio"
+                    required
+                    [(ngModel)]="applicant.empresa1FechaInicio"
+                    name="empresa1FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1FechaFin"> Fecha Fin Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1FechaFin"
+                    required
+                    [(ngModel)]="applicant.empresa1FechaFin"
+                    name="empresa1FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Telefono"> Telefono Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Telefono"
+                    required
+                    [(ngModel)]="applicant.empresa1Telefono"
+                    name="empresa1Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Direccion"> Direccion Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Direccion"
+                    required
+                    [(ngModel)]="applicant.empresa1Direccion"
+                    name="empresa1Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Jefe"> Nombre Jefe Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Jefe"
+                    required
+                    [(ngModel)]="applicant.empresa1Jefe"
+                    name="empresa1Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1JefeTelefono"> Telefono Jefe Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1JefeTelefono"
+                    required
+                    [(ngModel)]="applicant.empresa1JefeTelefono"
+                    name="empresa1JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Salario"> Salario Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Salario"
+                    required
+                    [(ngModel)]="applicant.empresa1Salario"
+                    name="empresa1Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1MotivoSalida"> Motivo de Salida Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1MotivoSalida"
+                    required
+                    [(ngModel)]="applicant.empresa1MotivoSalida"
+                    name="empresa1MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Responsabilidades"> Responsabilidades Empresa 1 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa1Responsabilidades"
+                    required
+                    [(ngModel)]="applicant.empresa1Responsabilidades"
+                    name="empresa1Responsabilidades"></textarea>
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'2'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="empresa2"> Nombre Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2"
+                    required
+                    [(ngModel)]="applicant.empresa2"
+                    name="empresa2"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2FechaInicio"> Fecha Inicio Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2FechaInicio"
+                    required
+                    [(ngModel)]="applicant.empresa2FechaInicio"
+                    name="empresa2FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2FechaFin"> Fecha Fin Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2FechaFin"
+                    required
+                    [(ngModel)]="applicant.empresa2FechaFin"
+                    name="empresa2FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Telefono"> Telefono Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Telefono"
+                    required
+                    [(ngModel)]="applicant.empresa2Telefono"
+                    name="empresa2Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Direccion"> Direccion Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Direccion"
+                    required
+                    [(ngModel)]="applicant.empresa2Direccion"
+                    name="empresa2Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Jefe"> Nombre Jefe Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Jefe"
+                    required
+                    [(ngModel)]="applicant.empresa2Jefe"
+                    name="empresa2Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2JefeTelefono"> Telefono Jefe Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2JefeTelefono"
+                    required
+                    [(ngModel)]="applicant.empresa2JefeTelefono"
+                    name="empresa2JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Salario"> Salario Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Salario"
+                    required
+                    [(ngModel)]="applicant.empresa2Salario"
+                    name="empresa2Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2MotivoSalida"> Motivo de Salida Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2MotivoSalida"
+                    required
+                    [(ngModel)]="applicant.empresa2MotivoSalida"
+                    name="empresa2MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Responsabilidades"> Responsabilidades Empresa 2 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa2Responsabilidades"
+                    required
+                    [(ngModel)]="applicant.empresa2Responsabilidades"
+                    name="empresa2Responsabilidades"></textarea>
+                </div>
+              </div>
+              
+            </fieldset>
+            <fieldset *ngSwitchCase="'3'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="empresa3"> Nombre Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3"
+                    required
+                    [(ngModel)]="applicant.empresa3"
+                    name="empresa3"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3FechaInicio"> Fecha Inicio Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3FechaInicio"
+                    required
+                    [(ngModel)]="applicant.empresa3FechaInicio"
+                    name="empresa3FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3FechaFin"> Fecha Fin Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3FechaFin"
+                    required
+                    [(ngModel)]="applicant.empresa3FechaFin"
+                    name="empresa3FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Telefono"> Telefono Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Telefono"
+                    required
+                    [(ngModel)]="applicant.empresa3Telefono"
+                    name="empresa3Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Direccion"> Direccion Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Direccion"
+                    required
+                    [(ngModel)]="applicant.empresa3Direccion"
+                    name="empresa3Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Jefe"> Nombre Jefe Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Jefe"
+                    required
+                    [(ngModel)]="applicant.empresa3Jefe"
+                    name="empresa3Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3JefeTelefono"> Telefono Jefe Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3JefeTelefono"
+                    required
+                    [(ngModel)]="applicant.empresa3JefeTelefono"
+                    name="empresa3JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Salario"> Salario Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Salario"
+                    required
+                    [(ngModel)]="applicant.empresa3Salario"
+                    name="empresa3Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3MotivoSalida"> Motivo de Salida Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3MotivoSalida"
+                    required
+                    [(ngModel)]="applicant.empresa3MotivoSalida"
+                    name="empresa3MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Responsabilidades"> Responsabilidades Empresa 3 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa3Responsabilidades"
+                    required
+                    [(ngModel)]="applicant.empresa3Responsabilidades"
+                    name="empresa3Responsabilidades"></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset *ngSwitchCase="'4'">
+              <div class="element">
+                <div class="form-group">
+                  <label for="empresa4"> Nombre Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4"
+                    required
+                    [(ngModel)]="applicant.empresa4"
+                    name="empresa4"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4FechaInicio"> Fecha Inicio Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4FechaInicio"
+                    required
+                    [(ngModel)]="applicant.empresa4FechaInicio"
+                    name="empresa4FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4FechaFin"> Fecha Fin Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4FechaFin"
+                    required
+                    [(ngModel)]="applicant.empresa4FechaFin"
+                    name="empresa4FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Telefono"> Telefono Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Telefono"
+                    required
+                    [(ngModel)]="applicant.empresa4Telefono"
+                    name="empresa4Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Direccion"> Direccion Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Direccion"
+                    required
+                    [(ngModel)]="applicant.empresa4Direccion"
+                    name="empresa4Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Jefe"> Nombre Jefe Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Jefe"
+                    required
+                    [(ngModel)]="applicant.empresa4Jefe"
+                    name="empresa4Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4JefeTelefono"> Telefono Jefe Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4JefeTelefono"
+                    required
+                    [(ngModel)]="applicant.empresa4JefeTelefono"
+                    name="empresa4JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Salario"> Salario Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Salario"
+                    required
+                    [(ngModel)]="applicant.empresa4Salario"
+                    name="empresa4Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4MotivoSalida"> Motivo de Salida Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4MotivoSalida"
+                    required
+                    [(ngModel)]="applicant.empresa4MotivoSalida"
+                    name="empresa4MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Responsabilidades"> Responsabilidades Empresa 4 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa4Responsabilidades"
+                    required
+                    [(ngModel)]="applicant.empresa4Responsabilidades"
+                    name="empresa4Responsabilidades"></textarea>
+                </div>
+              </div>
+              
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <button (click)="saveApplicant()" class="btn btn-success">Guardar</button>
+    </div>
+              
+    <div *ngIf="submitted">
+      <h4>El candidato ha sido guardado exitosamente</h4>
+      <button class="btn btn-warning " [routerLink]="['/applicants']">Regresar</button>
+      <button type="submit" class="btn btn-success" (click)="newApplicant()">Nuevo Aplicante</button>
+    </div>
+  </div>
+</div>
+

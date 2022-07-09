@@ -1,0 +1,679 @@
+<div class="container">
+  <div class="container-body">
+    <div class="container-header">
+      <h1 mat-dialog-title>Añadir un Candidato</h1>
+      <div class="button-bar">
+        <button mat-button (click)="changeView('personal')">Personal</button>
+        <button mat-button (click)="changeView('study')">Estudios</button>
+        <button mat-button (click)="changeView('work')" >Laboral</button>
+      </div>
+    </div>
+    <mat-dialog-content>
+          <h4>Informacion de Candidato</h4>
+          <div class="button-bar">
+            <button (click)="changeView('personal')">Personal</button>
+            <button (click)="changeView('studies')">Estudios</button>
+            <button (click)="changeView('work')">Laboral</button>
+          </div>
+          <form [ngSwitch]="view">
+            <ng-template *ngSwitchCase="'personal'">
+              <div class="form-group">
+                <label for="dpi"> DPI </label>
+                <input
+                  class="form-control"
+                  id="dpi"
+                  required
+                  [ngModel]="currentApplicant.dpi"
+                  name="dpi"
+                  value={{currentApplicant.dpi}}
+                />
+              </div>
+              <div class="form-group">
+                <label for="nombreCompleto"> Nombre Completo </label>
+                <input
+                  class="form-control"
+                  id="nombreCompleto"
+                  required
+                  [ngModel]="currentApplicant.nombreCompleto"
+                  name="nombreCompleto"
+                  value={{currentApplicant.nombreCompleto}}
+                />
+              </div>
+              <div class="form-group">
+                <label for="genero"> Genero </label>
+                <input
+                  class="form-control"
+                  id="genero"
+                  required
+                  [ngModel]="currentApplicant.genero"
+                  name="genero"
+                  value={{currentApplicant.genero}}
+                />
+              </div>
+              <div class="form-group">
+                <label for="telefono"> Telefono </label>
+                <input
+                  class="form-control"
+                  id="telefono"
+                  required
+                  [ngModel]="currentApplicant.telefono"
+                  name="telefono"
+                  value={{currentApplicant.telefono}}
+                />
+              </div>
+              <div class="form-group">
+                <label for="celular"> Celular </label>
+                <input
+                  class="form-control"
+                  id="celular"
+                  required
+                  [ngModel]="currentApplicant.celular"
+                  name="celular"
+                  value={{currentApplicant.celular}}
+                />
+              </div>
+              <div class="form-group">
+                <label for="correo"> Correo Electronico </label>
+                <input
+                  class="form-control"
+                  id="correo"
+                  required
+                  [ngModel]="currentApplicant.correo"
+                  name="correo"
+                />
+              </div>
+              <div class="form-group">
+                <label for="fechaNacimiento"> Fecha de Nacimiento </label>
+                <input
+                  class="form-control"
+                  id="fechaNacimiento"
+                  required
+                  [ngModel]="currentApplicant.fechaNacimiento"
+                  name="fechaNacimiento"
+                />
+              </div>
+            </ng-template>
+
+
+            <ng-template *ngSwitchCase="'studies'">
+              <div class="button-bar">
+                <button (click)="changeStudiesView('general')">General</button>
+                <button (click)="changeStudiesView('phd')">Doctorado</button>
+                <button (click)="changeStudiesView('master')">Maestria</button>
+                <button (click)="changeStudiesView('bachelor')">Licenciatura</button>
+                <button (click)="changeStudiesView('apprenticeship')">Tecnico</button>
+                <button (click)="changeStudiesView('school')">Colegio</button>
+              </div>
+              <ng-template [ngSwitch]="studiesView">
+                <ng-template *ngSwitchCase="'general'">
+                  <div class="form-group">
+                    <label for="estudiosMasAltos"> Estudios Mas Altos </label>
+                    <input
+                      class="form-control"
+                      id="estudiosMasAltos"
+                      required
+                      [ngModel]="currentApplicant.estudiosMasAltos"
+                      name="estudiosMasAltos"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="otrosEstudios"> Otros Estudios </label>
+                    <input
+                      class="form-control"
+                      id="otrosEstudios"
+                      [ngModel]="currentApplicant.otrosEstudios"
+                      name="otrosEstudios"
+                    />
+                  </div>
+                </ng-template>
+      
+                <ng-template *ngSwitchCase="'phd'">
+                  <div class="form-group">
+                    <label for="doctoradoInstitucion"> Institucion doctorado </label>
+                    <input
+                      class="form-control"
+                      id="doctoradoInstitucion"
+                      [ngModel]="currentApplicant.doctoradoInstitucion"
+                      name="doctoradoInstitucion"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="doctoradoEstudio"> Estudio doctorado </label>
+                    <input
+                      class="form-control"
+                      id="doctoradoEstudio"
+                      [ngModel]="currentApplicant.doctoradoEstudio"
+                      name="doctoradoEstudio"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="doctoradoGrado"> Grado doctorado </label>
+                    <input
+                      class="form-control"
+                      id="doctoradoGrado"
+                      [ngModel]="currentApplicant.doctoradoGrado"
+                      name="doctoradoGrado"
+                    />
+                  </div>
+                </ng-template>
+      
+                <ng-template *ngSwitchCase="'master'">
+                  <div class="form-group">
+                    <label for="maestriaInstitucion"> Institucion maestria </label>
+                    <input
+                      class="form-control"
+                      id="maestriaInstitucion"
+                      [ngModel]="currentApplicant.maestriaInstitucion"
+                      name="maestriaInstitucion"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="maestriaEstudio"> Estudio maestria </label>
+                    <input
+                      class="form-control"
+                      id="maestriaEstudio"
+                      [ngModel]="currentApplicant.maestriaEstudio"
+                      name="maestriaEstudio"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="maestriaGrado"> Grado maestria </label>
+                    <input
+                      class="form-control"
+                      id="maestriaGrado"
+                      [ngModel]="currentApplicant.maestriaGrado"
+                      name="maestriaGrado"
+                    />
+                  </div>
+                </ng-template>
+      
+                <ng-template *ngSwitchCase="'bachelor'">
+                  <div class="form-group">
+                    <label for="licenciaturaInstitucion"> Institucion licenciatura </label>
+                    <input
+                      class="form-control"
+                      id="licenciaturaInstitucion"
+                      [ngModel]="currentApplicant.licenciaturaInstitucion"
+                      name="licenciaturaInstitucion"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="licenciaturaEstudio"> Estudio licenciatura </label>
+                    <input
+                      class="form-control"
+                      id="licenciaturaEstudio"
+                      [ngModel]="currentApplicant.licenciaturaEstudio"
+                      name="licenciaturaEstudio"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="licenciaturaGrado"> Grado licenciatura </label>
+                    <input
+                      class="form-control"
+                      id="licenciaturaGrado"
+                      [ngModel]="currentApplicant.licenciaturaGrado"
+                      name="licenciaturaGrado"
+                    />
+                  </div>
+                </ng-template>
+      
+                <ng-template *ngSwitchCase="'apprenticeship'">
+                  <div class="form-group">
+                    <label for="tecnicoInstitucion"> Institucion tecnico </label>
+                    <input
+                      class="form-control"
+                      id="tecnicoInstitucion"
+                      [ngModel]="currentApplicant.tecnicoInstitucion"
+                      name="tecnicoInstitucion"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="tecnicoEstudio"> Estudio tecnico </label>
+                    <input
+                      class="form-control"
+                      id="tecnicoEstudio"
+                      [ngModel]="currentApplicant.tecnicoEstudio"
+                      name="tecnicoEstudio"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="tecnicoGrado"> Grado tecnico </label>
+                    <input
+                      class="form-control"
+                      id="tecnicoGrado"
+                      [ngModel]="currentApplicant.tecnicoGrado"
+                      name="tecnicoGrado"
+                    />
+                  </div>
+                </ng-template>
+      
+                <ng-template *ngSwitchCase="'school'">
+                  <div class="form-group">
+                    <label for="colegioInstitucion"> Institucion colegio </label>
+                    <input
+                      class="form-control"
+                      id="colegioInstitucion"
+                      [ngModel]="currentApplicant.colegioInstitucion"
+                      name="colegioInstitucion"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="colegioEstudio"> Estudio colegio </label>
+                    <input
+                      class="form-control"
+                      id="colegioEstudio"
+                      [ngModel]="currentApplicant.colegioEstudio"
+                      name="colegioEstudio"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="colegioGrado"> Grado colegio </label>
+                    <input
+                      class="form-control"
+                      id="colegioGrado"
+                      [ngModel]="currentApplicant.colegioGrado"
+                      name="colegioGrado"
+                    />
+                  </div>
+                </ng-template>
+    
+    
+              </ng-template>
+             
+      
+            </ng-template>
+    
+            <ng-template *ngSwitchCase="'work'">
+              <div class="button-bar">
+                <button (click)="changeWorkView('1')">Empresa 1</button>
+                <button (click)="changeWorkView('2')">Empresa 2</button>
+                <button (click)="changeWorkView('3')">Empresa 3</button>
+                <button (click)="changeWorkView('4')">Empresa 4</button>
+              </div>
+             <ng-template [ngSwitch]="workView">
+              <ng-template *ngSwitchCase="'1'">
+                <div class="form-group">
+                  <label for="empresa1"> Nombre Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1"
+                    [ngModel]="currentApplicant.empresa1"
+                    name="empresa1"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1FechaInicio"> Fecha Inicio Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1FechaInicio"
+                    [ngModel]="currentApplicant.empresa1FechaInicio"
+                    name="empresa1FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1FechaFin"> Fecha Fin Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1FechaFin"
+                    [ngModel]="currentApplicant.empresa1FechaFin"
+                    name="empresa1FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Telefono"> Telefono Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Telefono"
+                    [ngModel]="currentApplicant.empresa1Telefono"
+                    name="empresa1Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Direccion"> Direccion Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Direccion"
+                    [ngModel]="currentApplicant.empresa1Direccion"
+                    name="empresa1Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Jefe"> Nombre Jefe Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Jefe"
+                    [ngModel]="currentApplicant.empresa1Jefe"
+                    name="empresa1Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1JefeTelefono"> Telefono Jefe Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1JefeTelefono"
+                    [ngModel]="currentApplicant.empresa1JefeTelefono"
+                    name="empresa1JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Salario"> Salario Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1Salario"
+                    [ngModel]="currentApplicant.empresa1Salario"
+                    name="empresa1Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1MotivoSalida"> Motivo de Salida Empresa 1 </label>
+                  <input
+                    class="form-control"
+                    id="empresa1MotivoSalida"
+                    [ngModel]="currentApplicant.empresa1MotivoSalida"
+                    name="empresa1MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa1Responsabilidades"> Responsabilidades Empresa 1 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa1Responsabilidades"
+                    [ngModel]="currentApplicant.empresa1Responsabilidades"
+                    name="empresa1Responsabilidades"></textarea>
+                </div>
+              </ng-template>
+    
+              <ng-template *ngSwitchCase="'2'">
+                <div class="form-group">
+                  <label for="empresa2"> Nombre Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2"
+                    [ngModel]="currentApplicant.empresa2"
+                    name="empresa2"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2FechaInicio"> Fecha Inicio Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2FechaInicio"
+                    [ngModel]="currentApplicant.empresa2FechaInicio"
+                    name="empresa2FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2FechaFin"> Fecha Fin Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2FechaFin"
+                    [ngModel]="currentApplicant.empresa2FechaFin"
+                    name="empresa2FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Telefono"> Telefono Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Telefono"
+                    [ngModel]="currentApplicant.empresa2Telefono"
+                    name="empresa2Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Direccion"> Direccion Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Direccion"
+                    [ngModel]="currentApplicant.empresa2Direccion"
+                    name="empresa2Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Jefe"> Nombre Jefe Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Jefe"
+                    [ngModel]="currentApplicant.empresa2Jefe"
+                    name="empresa2Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2JefeTelefono"> Telefono Jefe Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2JefeTelefono"
+                    [ngModel]="currentApplicant.empresa2JefeTelefono"
+                    name="empresa2JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Salario"> Salario Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2Salario"
+                    [ngModel]="currentApplicant.empresa2Salario"
+                    name="empresa2Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2MotivoSalida"> Motivo de Salida Empresa 2 </label>
+                  <input
+                    class="form-control"
+                    id="empresa2MotivoSalida"
+                    [ngModel]="currentApplicant.empresa2MotivoSalida"
+                    name="empresa2MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa2Responsabilidades"> Responsabilidades Empresa 2 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa2Responsabilidades"
+                    [ngModel]="currentApplicant.empresa2Responsabilidades"
+                    name="empresa2Responsabilidades"></textarea>
+                </div>
+              </ng-template>
+    
+              <ng-template *ngSwitchCase="'3'">
+                <div class="form-group">
+                  <label for="empresa3"> Nombre Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3"
+                    [ngModel]="currentApplicant.empresa3"
+                    name="empresa3"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3FechaInicio"> Fecha Inicio Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3FechaInicio"
+                    [ngModel]="currentApplicant.empresa3FechaInicio"
+                    name="empresa3FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3FechaFin"> Fecha Fin Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3FechaFin"
+                    [ngModel]="currentApplicant.empresa3FechaFin"
+                    name="empresa3FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Telefono"> Telefono Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Telefono"
+                    [ngModel]="currentApplicant.empresa3Telefono"
+                    name="empresa3Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Direccion"> Direccion Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Direccion"
+                    [ngModel]="currentApplicant.empresa3Direccion"
+                    name="empresa3Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Jefe"> Nombre Jefe Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Jefe"
+                    [ngModel]="currentApplicant.empresa3Jefe"
+                    name="empresa3Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3JefeTelefono"> Telefono Jefe Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3JefeTelefono"
+                    [ngModel]="currentApplicant.empresa3JefeTelefono"
+                    name="empresa3JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Salario"> Salario Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3Salario"
+                    [ngModel]="currentApplicant.empresa3Salario"
+                    name="empresa3Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3MotivoSalida"> Motivo de Salida Empresa 3 </label>
+                  <input
+                    class="form-control"
+                    id="empresa3MotivoSalida"
+                    [ngModel]="currentApplicant.empresa3MotivoSalida"
+                    name="empresa3MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa3Responsabilidades"> Responsabilidades Empresa 3 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa3Responsabilidades"
+                    [ngModel]="currentApplicant.empresa3Responsabilidades"
+                    name="empresa3Responsabilidades"></textarea>
+                </div>
+              </ng-template>
+    
+              <ng-template *ngSwitchCase="'4'">
+                <div class="form-group">
+                  <label for="empresa4"> Nombre Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4"
+                    [ngModel]="currentApplicant.empresa4"
+                    name="empresa4"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4FechaInicio"> Fecha Inicio Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4FechaInicio"
+                    [ngModel]="currentApplicant.empresa4FechaInicio"
+                    name="empresa4FechaInicio"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4FechaFin"> Fecha Fin Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4FechaFin"
+                    [ngModel]="currentApplicant.empresa4FechaFin"
+                    name="empresa4FechaFin"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Telefono"> Telefono Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Telefono"
+                    [ngModel]="currentApplicant.empresa4Telefono"
+                    name="empresa4Telefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Direccion"> Direccion Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Direccion"
+                    [ngModel]="currentApplicant.empresa4Direccion"
+                    name="empresa4Direccion"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Jefe"> Nombre Jefe Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Jefe"
+                    [ngModel]="currentApplicant.empresa4Jefe"
+                    name="empresa4Jefe"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4JefeTelefono"> Telefono Jefe Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4JefeTelefono"
+                    [ngModel]="currentApplicant.empresa4JefeTelefono"
+                    name="empresa4JefeTelefono"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Salario"> Salario Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4Salario"
+                    [ngModel]="currentApplicant.empresa4Salario"
+                    name="empresa4Salario"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4MotivoSalida"> Motivo de Salida Empresa 4 </label>
+                  <input
+                    class="form-control"
+                    id="empresa4MotivoSalida"
+                    [ngModel]="currentApplicant.empresa4MotivoSalida"
+                    name="empresa4MotivoSalida"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="empresa4Responsabilidades"> Responsabilidades Empresa 4 </label>
+                  <textarea
+                    class="form-control"
+                    id="empresa4Responsabilidades"
+                    [ngModel]="currentApplicant.empresa4Responsabilidades"
+                    name="empresa4Responsabilidades"></textarea>
+                </div>
+              </ng-template>
+    
+             </ng-template>
+              
+            </ng-template>
+    
+          </form> 
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button name="update" id="update" class="update" (click)="updateApplicant()" routerLink="/applicants/{{currentApplicant.dpi}}">Actualizar</button>
+      <button name="close" id="close" class="close" (click)="close()">Cerrar</button>
+    </mat-dialog-actions>
+
+
+  </div>
+</div>
+<div class="container-background"></div>
+
+
+  

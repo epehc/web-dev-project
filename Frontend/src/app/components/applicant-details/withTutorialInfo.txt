@@ -1,0 +1,47 @@
+<div *ngIf="viewMode; else editable">
+        <div *ngIf="currentApplicant.dpi">
+      
+          <h4>Informacion de Candidato</h4>
+          <div class="button-bar">
+            <button (click)="changeView('personal')">Personal</button>
+            <button (click)="changeView('studies')">Estudios</button>
+            <button (click)="changeView('work')">Laboral</button>
+          </div>
+          <div [ngSwitch]="view">
+            <div *ngSwitchCase="'personal'">
+              <div>
+                <label><strong>Nombre del candidato: </strong></label> {{currentApplicant.nombreCompleto}}
+              </div>
+              <div>
+                <label><strong>No. de DPI: </strong></label> {{currentApplicant.dpi}}
+              </div>
+              <div>
+                <label><strong>Genero: </strong></label> {{currentApplicant.genero}}
+              </div>
+            </div>
+            <div *ngSwitchCase="'studies'">
+    
+            </div>
+    
+            <div *ngSwitchCase="'work'">
+    
+            </div>
+    
+    
+          </div>
+          
+      
+          <a class="badge badge-warning"
+             routerLink="/applicants/{{currentApplicant.dpi}}">
+            Editar
+          </a>
+        </div>
+        <div *ngIf="!currentApplicant">
+          <br />
+          <p> Por favor seleccionar un candidato.</p>
+        </div>
+      
+      </div>
+      
+      <ng-template #editable>
+        <div *ngIf="currentApplicant.dpi" class="edit-form">

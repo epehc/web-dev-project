@@ -1,0 +1,50 @@
+<div class="list row">
+
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input type="text"
+             class="form-control"
+             placeholder="Buscar por DPI"
+             [(ngModel)]="dpi" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary"
+                type="button"
+                (click)="searchDpi()">
+          Buscar
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div class="applicant-list">
+    <h4>Lista de Aplicantes</h4>
+    <table>
+      <tr>
+        <th><span>DPI</span></th>
+        <th><span>Nombre Completo</span></th>
+        <th><span>Genero</span></th>
+        <th><span>Puesto al que aplica</span></th>
+        <th><span>Celular</span></th>
+        <th><span>Correo</span></th>
+        <th><span>Acciones</span></th>
+      </tr>
+      <tr *ngFor="let applicant of applicants; let i = index"
+      [class.active]="i == currentIndex"
+      (click)="setActiveApplicant(applicant,i)">
+        <td>{{applicant.dpi}}</td>
+        <td>{{applicant.nombreCompleto}}</td>
+        <td>{{applicant.genero}}</td>
+        <td>{{applicant.puestoAlQueAplica}}</td>
+        <td>{{applicant.celular}}</td>
+        <td>{{applicant.correo}}</td>
+        <td> <app-open-applicant [currentApplicant]="applicant"></app-open-applicant>
+        </td>
+      </tr>
+    </table>
+    <button mat-button (click)="removeAllApplicants()">
+      Eliminar Aplicantes
+    </button>
+  </div>
+</div>
+
+ 

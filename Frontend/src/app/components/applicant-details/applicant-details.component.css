@@ -1,0 +1,72 @@
+.container{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  border-radius: 1.5rem;
+
+  /* z-index must be higher than .jw-modal-background */
+  z-index: 1000;
+
+  /* enables scrolling for tall modals */
+  overflow: auto;
+}
+
+.container-body{
+
+  padding: 20px;
+  background: #fff;
+  min-height: 90vh;
+  /* margin exposes part of the modal background */
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10px;
+
+  overflow: hidden;
+}
+
+.container-header{
+margin-bottom: 20px;
+}
+
+.container-background{
+
+  /* modal container fixed across whole screen */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+
+  /* enables scrolling for tall modals */
+  overflow: auto;
+
+  background-color: #000;
+  opacity: 0.75;
+
+  /* z-index must be below .jw-modal and above everything else  */
+  z-index: 900;
+
+
+}
+
+mat-dialog-content{
+  min-height: 70vh;
+}
+
+mat-dialog-actions{
+display: flex;
+justify-content: flex-end;
+}
+
+mat-dialog-actions button{
+background-color: red;
+}
+
+mat-dialog-actions .update{
+background-color: goldenrod;
+}
