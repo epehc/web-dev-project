@@ -13,3 +13,7 @@ Run 'ng serve --port 8081' From Terminal inside the Backend folder. `http://loca
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+### Additional info
+Followed a tutorial from https://www.bezkoder.com/angular-14-node-js-express-postgresql/ to help build the project
